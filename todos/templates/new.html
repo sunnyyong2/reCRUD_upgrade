@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    <form action="/todos/create/" method="post">
+    <form action="{% url 'todos:create' %}" method="post">
         {% csrf_token %}
         작성자 : <input type="text" name="author">
         제목 : <input type="text" name="title">

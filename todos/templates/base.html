@@ -7,6 +7,9 @@
     <title>ToDo</title>
 </head>
 <body>
+    <a href="{% url 'todos:index' %}">전체글 보기</a>
+    <a href="{% url 'todos:new' %}">할 일 추가</a>
+
     {% block body %}
     {% endblock %}
 </body>

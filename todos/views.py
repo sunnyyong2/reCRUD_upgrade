@@ -7,7 +7,7 @@ def index(request):
     context = {
         'todos' : todos,
     }
-    return render(request, 'index.html')
+    return render(request, 'index.html',context)
 
 def new(request):
     return render(request, 'new.html')
@@ -32,4 +32,10 @@ def create(request):
         due_date=due_date
         )
     
-    return redirect('/todos/')
+    return redirect('todos:index')
+
+def delete(request, id):
+    todo = Todo.objects.get(id=id)
+    todo.delete()
+
+    return redirect('todos:index')
